@@ -10,8 +10,8 @@ def get_index(filter=''):
 		add('Cody', 'Brocious')
 		add('Testy', 'McTesterson')
 
-	print filter
-	return dict(filter=filter, students=db.query("SELECT id, lastname, firstname FROM students WHERE sessid='%s' AND (firstname LIKE '%%%%%s%%%%' OR lastname LIKE '%%%%%s%%%%');" % (handler.sessid(), filter, filter)))
+	print(filter)
+	return dict(filter=filter, students=db.query("SELECT id, lastname, firstname FROM students WHERE sessid='%s' AND (firstname LIKE '%%%%%s%%%%' OR lastname LIKE '%%%%%s%%%%');" % (handler.sessid(),[...]
 
 @handler('level6/edit')
 def get_edit(id):
