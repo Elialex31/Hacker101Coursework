@@ -16,11 +16,11 @@ class DB(object):
 		try:
 			with self.conn:
 				cursor = self.conn.cursor()
-				print '[DEBUG] %s <= %r' % (query, args)
+				print('[DEBUG] %s <= %r' % (query, args))
 				cursor.execute(query, args)
 
 				return cursor.fetchall()
-		except mdb.OperationalError, e:
+		except mdb.OperationalError as e:
 			try:
 				if cursor is not None:
 					cursor.close()
@@ -34,9 +34,9 @@ class DB(object):
 
 	def hastable(self, table):
 		try:
-			print 'Checking to see if table %s exists' % table
+			print('Checking to see if table %s exists' % table)
 			self.query('SELECT id FROM `%s` LIMIT 1;' % table)
-			print 'Successful query ... ?'
+			print('Successful query ... ?')
 			return True
 		except:
 			import traceback
