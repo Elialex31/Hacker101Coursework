@@ -8,7 +8,7 @@ def get_index(error=None, username='admin', password=''):
 def post_index(username, password):
 	try:
 		user = db.query("SELECT password FROM users WHERE username='%s'" % username)
-	except Exception, e:
+	except Exception as e:
 		import traceback
 		return Response(traceback.format_exc() + '\n' + e[1], mimetype='text/plain')
 
